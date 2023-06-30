@@ -33,7 +33,7 @@ public class ControllerVacantes {
 	@PostMapping(value = "/saveVacante")
 	public String saveVacantes(@RequestBody TaskVacantes taskVacantes) {
 		vacantesRepository.save(taskVacantes);
-		return "saved taskVacantes";
+		return "Vacante guardada";
 	}
 	
 	@PutMapping(value = "/update/{id}")
@@ -46,14 +46,14 @@ public class ControllerVacantes {
 		updatedVacantes.setSalario(taskVacantes.getSalario());
 		
 		vacantesRepository.save(updatedVacantes);
-		return "update task";
+		return "Actualizacion Vacante Realizada";
 	}
 	
 	@DeleteMapping(value = "/delete/{id}")
 	public String deleteVacantes(@PathVariable long id) {
 		TaskVacantes deletedVacantes=vacantesRepository.findById(id).get();
 		vacantesRepository.delete(deletedVacantes);
-		return "delete task";
+		return "vacante Eliminada";
 	}
 	
 }
